@@ -35,6 +35,8 @@ const CreatePage = () => {
             const response = await axios.post('/api/courses', values)
 
             router.push(`/teacher/courses/${response.data.id}`)
+
+            toast.success("Course created successfully")
             
         } catch (error) {
             toast.error("Something went wrong")
@@ -56,7 +58,6 @@ const CreatePage = () => {
                 <Form {...form} >
                     <form onSubmit={form.handleSubmit(submitForm)}
                         className="space-y-8 mt-8">
-
 
                     <FormField control={form.control}
                         name="title" render={({ field }) => <FormItem>
